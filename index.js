@@ -10,8 +10,7 @@ for(var i=0;i<document.querySelectorAll(".drum").length;i++){
 }
 //keypress detection
 document.addEventListener("keydown",function(event){
-    makeSound(event.key);
-    buttonAnimate(event.key);
+    if(makeSound(event.key)) buttonAnimate(event.key);
 })
 
 function makeSound(key){
@@ -45,8 +44,10 @@ function makeSound(key){
             tom4.play();
             break;
         default:
-           alert("oops!");
+           return false;
         }
+
+        return true;
     }
 
     function buttonAnimate(currentKey){
